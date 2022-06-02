@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import RoomForm
+from .models import Room
 
 
 @login_required()
@@ -12,10 +13,19 @@ def chat_home(request):
     if request.method == 'POST' and form.is_valid():
         room_name = form.cleaned_data['room_name']
         messages.success(request, f"Found: {room_name}")
-        return render(request, 'chat/chatroom.html', {'room_name': room_name})
+        return render(request, 'chat/chatroom.html', {'room_name': room_name, 'title': room_name})
 
     return render(request, 'chat/index.html', {'form': form})
 
 
-def chat_room(request):
-    render(request, 'chat/chatroom.html')
+@login_required
+def chat_room(request, room_name):
+    return render(request, 'chat/chatroom.html', {
+        'room_name': room_name,
+        'title': room_name,
+    })
+
+# @login_required()
+# def chat_room(request, slug):
+#     room = Room.objects.get(slug=slug)
+#     return render(request, 'chat/chatroom.html', {'room_name': room, 'title': room})

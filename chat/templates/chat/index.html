@@ -3,7 +3,9 @@
   <form method="POST">
     {% csrf_token %}
     <fieldset class="form-group">
-      <legend class="border-bottom mb-4">🏴‍☠️Ahoy!</legend>
+      <legend class="border-bottom mb-4">
+        🏴‍☠️Ahoy! Enter a room name to join
+      </legend>
       {{ form|crispy }}
     </fieldset>
     <div class="form-group">

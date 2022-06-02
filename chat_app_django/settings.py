@@ -32,6 +32,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'channels',
     'crispy_forms',
     'chat.apps.ChatConfig',
     'users.apps.UsersConfig',
@@ -73,7 +74,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'chat_app_django.wsgi.application'
 
+# ************************************ #
+# ADDED
+ASGI_APPLICATION = 'chat_app_django.asgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer'
+    }
+}
+
+# ************************************ #
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
