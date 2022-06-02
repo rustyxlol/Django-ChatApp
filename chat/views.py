@@ -24,8 +24,3 @@ def chat_room(request, room_name):
         'room_name': room_name,
         'title': room_name,
     })
-
-# @login_required()
-# def chat_room(request, slug):
-#     room = Room.objects.get(slug=slug)
-#     return render(request, 'chat/chatroom.html', {'room_name': room, 'title': room})

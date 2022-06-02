@@ -1,8 +1,34 @@
 {% extends "chat/base.html" %} {% load crispy_forms_tags %} {% block content %}
 <div class="content-section">
-  <textarea id="chat-log" cols="100" rows="20"></textarea><br />
-  <input id="chat-message-input" type="text" size="100" /><br />
-  <input id="chat-message-submit" type="button" value="Send" />
+  <textarea
+    readonly
+    class="form-control"
+    id="chat-log"
+    cols="100"
+    rows="20"
+    style="
+      resize: none;
+      border: none;
+      border-color: none;
+      box-shadow: none;
+      outline: none;
+      cursor: none;
+    "
+  ></textarea
+  ><br />
+  <input
+    class="form-control"
+    id="chat-message-input"
+    type="text"
+    size="100"
+  /><br />
+  <input
+    class="form-control"
+    id="chat-message-submit"
+    type="button"
+    value="Send"
+  />
+
   {{ room_name|json_script:"room-name" }}
   <script>
     const roomName = JSON.parse(
