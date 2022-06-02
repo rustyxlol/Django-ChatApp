@@ -1,22 +1,41 @@
 {% extends "chat/base.html" %} {% load crispy_forms_tags %} {% block content %}
 <div class="content-section">
   <h3 class="text-center">{{room_name}}</h3>
-  <textarea
-    readonly
-    class="form-control"
+  <div
     id="chat-log"
-    cols="100"
-    rows="20"
-    style="
-      resize: none;
-      border: none;
-      border-color: none;
-      box-shadow: none;
-      outline: none;
-      cursor: default;
-    "
-  ></textarea
-  ><br />
+    class="container bg-light p-3 rounded-sm border rounded"
+    style="height: 450px"
+  >
+    <article class="media content-section">
+      <img
+        class="rounded-circle article-img"
+        src="{{ user.profile.image.url }}"
+      />
+      <div class="media-body">
+        <div class="article-metadata">
+          <span class="mr-2">{{user.username}}</span>
+        </div>
+
+        <p class="article-content">sdagdgdsg artc</p>
+      </div>
+    </article>
+
+    <article class="media content-section">
+      <img
+        class="rounded-circle article-img"
+        src="{{ user.profile.image.url }}"
+      />
+      <div class="media-body">
+        <div class="article-metadata">
+          <span class="mr-2">{{user.username}}</span>
+        </div>
+
+        <p class="article-content">sdagdgdsg artc</p>
+      </div>
+    </article>
+  </div>
+
+  <br />
   <input
     class="form-control"
     id="chat-message-input"
