@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import RoomForm
-from .models import Room
+# from .models import Room - used context processor instead
 
 
 @login_required()

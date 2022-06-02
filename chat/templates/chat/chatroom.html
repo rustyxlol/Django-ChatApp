@@ -1,5 +1,6 @@
 {% extends "chat/base.html" %} {% load crispy_forms_tags %} {% block content %}
 <div class="content-section">
+  <h3 class="text-center">{{room_name}}</h3>
   <textarea
     readonly
     class="form-control"
@@ -12,7 +13,7 @@
       border-color: none;
       box-shadow: none;
       outline: none;
-      cursor: none;
+      cursor: default;
     "
   ></textarea
   ><br />
