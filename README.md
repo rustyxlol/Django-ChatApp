@@ -8,9 +8,7 @@
     Hello from the other side
     <br />
     <br />
-    <a href="https://local-library-deployment.herokuapp.com/">View Demo</a>
-    ·
-    <a href="https://github.com/rustyxlol/LocalLibrary/issues">Report Bug</a>
+    <a href="https://github.com/rustyxlol/Django-ChatApp/issues">Report Bug</a>
 
 
   </p>
