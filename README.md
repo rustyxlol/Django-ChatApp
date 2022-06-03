@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <span style="font-family:Papyrus; font-size:50px;">🗣📢</span>
+  <span style="font-family:Papyrus; font-size:50px;">📢</span>
   <h3 align="center">Chat Application</h3>
 
   <p align="center">
@@ -9,8 +9,6 @@
     <br />
     <br />
     <a href="https://github.com/rustyxlol/Django-ChatApp/issues">Report Bug</a>
-
-
   </p>
 </p>
 
@@ -20,7 +18,10 @@ A simple chat application that covers Django authorization, web sockets and auth
 
 ### Features ⭐
 
-[Features]
+1. CRUD users
+2. Create rooms and chat in groups!
+3. Good looking UI
+4. Authenticated WebSockets to prevent unauthorized access
 
 ## Setup 🛠
 1. Clone or download the repository  
