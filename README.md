@@ -62,14 +62,18 @@ $ python manage.py migrate
 ### Part 2 - Chat application
 1. Channels Library 
 2. Implementing basic functionality first then redoing it in async
-3. FEATURE ADDITION: Redis can come during production, channel layer is set to `InMemoryChannelLayer` for development.
-4. 
+3. TODO: Redis can come during production, channel layer is set to `InMemoryChannelLayer` for development.
+4. Converted basic functionality to async
+5. Added context processors for sidebar channels
+6. Two public channels exist which anyone should be able to use, authentication in the next part.
+7. TODO: Refactoring code
+8. TODO: Documenting code
 ### Part 3(optional) - Authenticating part 2
 ----
 
 
 ### Resources
-1. [Django Tutorial - Corey Schafer](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p)
+1. [Django Tutorial - Corey Schafer](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) 
 2. [Django Channels - RealPython](https://realpython.com/getting-started-with-django-channels/)
 3. [Django Channels](https://channels.readthedocs.io/)
 

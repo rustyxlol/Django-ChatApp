@@ -11,8 +11,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
     """
 
     async def connect(self):
+        """
+        Connect to a room
+        """
         self.room_name = self.scope['url_route']['kwargs']['room_name']
-        self.room_group_name = 'chat_%s' % self.room_name
+        # self.room_group_name = 'chat_%s' % self.room_name
+        self.room_group_name = f"chat_{self.room_name}"
 
         # Join room group
         await self.channel_layer.group_add(
@@ -23,13 +27,22 @@ class ChatConsumer(AsyncWebsocketConsumer):
         await self.accept()
 
     async def disconnect(self, close_code):
+        """
+        Disconnect from channel
+
+        :param close_code: optional
+        """
         await self.channel_layer.group_discard(
             self.room_group_name,
             self.channel_name
         )
 
-    # Receive message from WebSocket
     async def receive(self, text_data):
+        """
+        Receive messages from WebSocket
+
+        :param text_data: message
+        """
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
         username = text_data_json['username']
@@ -48,8 +61,12 @@ class ChatConsumer(AsyncWebsocketConsumer):
             }
         )
 
-    # Receive message from room group
     async def chat_message(self, event):
+        """
+        Receive messages from room group
+
+        :param event: Events to pick up
+        """
         message = event['message']
         username = event['username']
         profile_pic = event['profile_pic']
