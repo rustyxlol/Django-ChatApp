@@ -3,8 +3,22 @@
     <h3 class="text-center">{{room_name}}</h3>
     <div id="chat-log-container" 
         class="container bg-light p-3 rounded-sm border rounded overflow-auto"
-        style="height: 450px; overflow-y:auto">
-        <div id="chat-log"> </div>
+        style="height: 480px; overflow-y:auto">
+        <div id="chat-log">
+            {% if db_messages %}
+            {% for m in db_messages %}
+            <div class="media content-section">
+                <img class="rounded-circle article-img" src="{{m.profile_pic}}" />
+                <div class="media-body">
+                    <div class="article-metadata">
+                        <span class="mr-2"> {{m.username}}  </span>
+                    </div>
+                    <p class="article-content">  {{m.message_content}}  </p>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+        </div>
     </div>
     <br />
     <input

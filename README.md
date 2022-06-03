@@ -66,8 +66,7 @@ $ python manage.py migrate
 4. Converted basic functionality to async
 5. Added context processors for sidebar channels
 6. Two public channels exist which anyone should be able to use, authentication in the next part.
-7. TODO: Refactoring code
-8. TODO: Documenting code
+7. Added messages model for permanent storage
 ### Part 3(optional) - Authenticating part 2
 ----
 
@@ -76,6 +75,7 @@ $ python manage.py migrate
 1. [Django Tutorial - Corey Schafer](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) 
 2. [Django Channels - RealPython](https://realpython.com/getting-started-with-django-channels/)
 3. [Django Channels](https://channels.readthedocs.io/)
+4. [Django Channels and WebSockets oversimplified - Dennis Ivy](https://www.youtube.com/watch?v=cw8-KFVXpTE)
 
 ## License
 
