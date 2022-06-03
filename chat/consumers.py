@@ -1,4 +1,5 @@
 import json
+import random
 from asgiref.sync import sync_to_async
 
 from channels.auth import login, logout
@@ -20,7 +21,8 @@ class ChatConsumer(AsyncWebsocketConsumer):
         Connect to a room
         """
         # Connect only if the user is authenticated
-        user = self.scope['user']
+        user = self.scope["user"]
+        self.scope["session"]["seed"] = random.randint(1, 1000)
 
         if user.is_authenticated:
             self.room_name = self.scope['url_route']['kwargs']['room_name']
