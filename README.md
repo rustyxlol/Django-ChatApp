@@ -67,7 +67,7 @@ $ python manage.py migrate
 7. Added messages model for permanent storage
 ### Part 3(optional) - Authenticating WebSockets
 
-1. The simplest approach is to use session authentication provided by Channels by scoping our consumer in websocket connect function like so.  
+1. The simplest approach is to use basic authentication provided by Channels by scoping our consumer in websocket connect function like so.  
 *Note: AuthMiddlewareStack is required.*
 ```py
 user = self.scope['user']
@@ -79,8 +79,12 @@ else:
 2. Another approach is to use Tokens - essentially create a token on the client side and send it over to the backend for authentication.  
    * Requires custom middleware
    * Requires `djangorestframework`
+   * Hard to work with because tokens cannot be passed to headers
+   * Have to establish connection first, then send a token, might pose security risks
 
+3. Third approach is to use sessions
 
+The first and second approaches are covered in this application, look `session-based` branch for the third approach.
 
 ### Resources
 1. [Django Tutorial - Corey Schafer](https://www.youtube.com/watch?v=UmljXZIypDc&list=PL-osiE80TeTtoQCKZ03TU5fNfx2UY6U4p) 
