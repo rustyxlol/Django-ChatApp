@@ -67,8 +67,21 @@ $ python manage.py migrate
 5. Added context processors for sidebar channels
 6. Two public channels exist which anyone should be able to use, authentication in the next part.
 7. Added messages model for permanent storage
-### Part 3(optional) - Authenticating part 2
-----
+### Part 3(optional) - Authenticating WebSockets
+
+1. The simplest approach is to use session authentication provided by Channels by scoping our consumer in websocket connect function like so.  
+*Note: AuthMiddlewareStack is required.*
+```py
+user = self.scope['user']
+if user.is_authenticated:
+    // authenticated user connection 
+else:
+    // unauthenticated acces - disconnect/close
+```
+2. Another approach is to use Tokens - essentially create a token on the client side and send it over to the backend for authentication.  
+   * Requires custom middleware
+   * Requires `djangorestframework`
+
 
 
 ### Resources
@@ -76,6 +89,7 @@ $ python manage.py migrate
 2. [Django Channels - RealPython](https://realpython.com/getting-started-with-django-channels/)
 3. [Django Channels](https://channels.readthedocs.io/)
 4. [Django Channels and WebSockets oversimplified - Dennis Ivy](https://www.youtube.com/watch?v=cw8-KFVXpTE)
+5. [Token Auth middleware ideas](https://gist.github.com/rluts/22e05ed8f53f97bdd02eafdf38f3d60a)
 
 ## License
 

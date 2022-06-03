@@ -1,6 +1,9 @@
 import json
-from channels.generic.websocket import AsyncWebsocketConsumer
 from asgiref.sync import sync_to_async
+
+from channels.auth import login, logout
+from channels.generic.websocket import AsyncWebsocketConsumer
+
 from . models import Message
 
 
@@ -16,17 +19,23 @@ class ChatConsumer(AsyncWebsocketConsumer):
         """
         Connect to a room
         """
-        self.room_name = self.scope['url_route']['kwargs']['room_name']
-        # self.room_group_name = 'chat_%s' % self.room_name
-        self.room_group_name = f"chat_{self.room_name}"
+        # Connect only if the user is authenticated
+        user = self.scope['user']
 
-        # Join room group
-        await self.channel_layer.group_add(
-            self.room_group_name,
-            self.channel_name
-        )
+        if user.is_authenticated:
+            self.room_name = self.scope['url_route']['kwargs']['room_name']
+            # self.room_group_name = 'chat_%s' % self.room_name
+            self.room_group_name = f"chat_{self.room_name}"
 
-        await self.accept()
+            # Join room group
+            await self.channel_layer.group_add(
+                self.room_group_name,
+                self.channel_name
+            )
+            await self.accept()
+
+        else:
+            await self.send({"close": True})
 
     async def disconnect(self, close_code):
         """
@@ -45,6 +54,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
 
         :param text_data: message
         """
+
         text_data_json = json.loads(text_data)
         message = text_data_json['message']
         username = text_data_json['username']
