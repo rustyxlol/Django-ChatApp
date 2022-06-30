@@ -16,6 +16,11 @@
 
 A simple chat application that covers Django authorization, web sockets and authentication.
 
+Demo:  
+
+https://user-images.githubusercontent.com/27452933/176642830-ae9db47e-da84-40ca-8485-03074d0cd106.mp4
+
+
 ### Features ⭐
 
 1. CRUD users
