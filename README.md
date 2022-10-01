@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <span style="font-family:Papyrus; font-size:50px;"><img src="images/chat.svg"></span>
+  <span style="font-family:Papyrus; font-size:50px;"><img src="images/chat.svg" width="200" height="200"></span>
   <h3 align="center">Chat Application</h3>
 
   <p align="center">
