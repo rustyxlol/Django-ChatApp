@@ -31,29 +31,29 @@ https://user-images.githubusercontent.com/27452933/176642830-ae9db47e-da84-40ca-
 ## Setup 🛠
 1. Clone or download the repository  
 ```bash
-$ git clone https://github.com/rustyxlol/chat-app-django.git
-$ cd chat-app-django
+git clone https://github.com/rustyxlol/Django-ChatApp.git
+cd chat-app-django
 ```
 2. Create and activate virtual environment
 ```bash
-$ python -m venv venv
+python -m venv venv
 ```
 Windows: `venv\Scripts\activate.bat`  
 Linux: `source venv/bin/activate`
 
 3. Install required packages
 ```bash
-$ python -m pip install -r requirements.txt
+python -m pip install -r requirements.txt
 ```
 
 4. Navigate to chat-app-django and run the server
 ```bash
-$ python manage.py runserver
+python manage.py runserver
 ```
 *Note: make migrations if any error occurs*
 ```bash
-$ python manage.py makemigrations
-$ python manage.py migrate
+python manage.py makemigrations
+python manage.py migrate
 ```
 
 5. Navigate to http://127.0.0.1:8000 on a browser of your choice.
