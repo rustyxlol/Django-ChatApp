@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'channels',
     'crispy_forms',
+    'crispy_bootstrap4',
     'chat.apps.ChatConfig',
     'users.apps.UsersConfig',
     'django.contrib.admin',
